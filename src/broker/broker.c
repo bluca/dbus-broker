@@ -66,7 +66,7 @@ int broker_new(Broker **brokerp, Log *log, const char *machine_id, int controlle
         broker->signals_file = (DispatchFile)DISPATCH_FILE_NULL(broker->signals_file);
         broker->controller = (Controller)CONTROLLER_NULL(broker->controller);
 
-        r = bus_init(&broker->bus, broker->log, machine_id, max_bytes, max_fds, max_matches, max_objects);
+        r = bus_init(&broker->bus, broker->log, machine_id, max_bytes, max_fds, max_matches, max_objects, 0, 0);
         if (r)
                 return error_fold(r);
 
