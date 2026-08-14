@@ -15,7 +15,7 @@ static void test_setup(void) {
         User *entry1, *entry2, *entry3;
         int r;
 
-        r = user_registry_init(&registry, NULL, _USER_SLOT_N, (unsigned int[]){ 1024, 1024, 1024, 1024, 1024 });
+        r = user_registry_init(&registry, NULL, _USER_SLOT_N, (unsigned int[]){ 1024, 1024, 1024, 1024, 1024 }, 0, 0);
         c_assert(!r);
 
         r = user_registry_ref_user(&registry, &entry1, 1);
@@ -42,7 +42,7 @@ static void test_quota(void) {
         UserCharge charge1, charge2, charge3;
         int r;
 
-        r = user_registry_init(&registry, NULL, _USER_SLOT_N, (unsigned int[]){ 1024, 1024, 1024, 1024, 1024 });
+        r = user_registry_init(&registry, NULL, _USER_SLOT_N, (unsigned int[]){ 1024, 1024, 1024, 1024, 1024 }, 0, 0);
         c_assert(!r);
 
         r = user_registry_ref_user(&registry, &entry1, 1);
@@ -100,7 +100,7 @@ static void test_overflow(void) {
         UserCharge charge1;
         int r;
 
-        r = user_registry_init(&registry, NULL, _USER_SLOT_N, (unsigned int[]){ 1024, 1024, 1024, 1024, 1024 });
+        r = user_registry_init(&registry, NULL, _USER_SLOT_N, (unsigned int[]){ 1024, 1024, 1024, 1024, 1024 }, 0, 0);
         c_assert(!r);
 
         r = user_registry_ref_user(&registry, &entry1, 1);

@@ -46,7 +46,7 @@ int bus_init(Bus *bus,
         c_assert(random);
         c_memcpy(bus->guid, random, sizeof(bus->guid));
 
-        r = user_registry_init(&bus->users, log, _USER_SLOT_N, maxima);
+        r = user_registry_init(&bus->users, log, _USER_SLOT_N, maxima, 0, 0);
         if (r)
                 return error_fold(r);
 
